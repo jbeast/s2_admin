@@ -10,5 +10,8 @@
     "requirejs-text": "~2.0.5",
     "modernizr": "~2.6.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "underscore": "1.4.4 - 1.6.0"
+  }
 }

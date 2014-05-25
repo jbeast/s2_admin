@@ -25,4 +25,4 @@ define [
 
     validate: (attributes, options) ->
       @_errorList = new ErrorList
-    
+      undefined 

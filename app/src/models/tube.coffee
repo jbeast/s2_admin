@@ -1,4 +1,7 @@
-define ["models/s2_labware_model", "models/label"], (S2LabwareModel, Label) ->
+define [
+  "models/s2_base/s2_labware_model",
+  "models/label"
+], (S2LabwareModel, Label) ->
 
   class Tube extends S2LabwareModel
 

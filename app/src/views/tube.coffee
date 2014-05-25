@@ -1,3 +1,9 @@
-define ["backbone"], (Backbone) ->
+define [
+  "views/labware",
+  "text!../../images/svgs/tube.svg"
+], (LabwareView, tubeSVG) ->
 
-  class TubeView extends Backbone.View
+  class TubeView extends LabwareView
+
+    constructor: () ->
+      @el = @createSVG(tubeSVG)

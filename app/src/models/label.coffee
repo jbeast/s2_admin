@@ -1,8 +1,9 @@
 define [
   "models/s2_base/s2_laboratory", 
   "models/labellable",
-  "models/search"
-  ], (S2Laboratory, Labellable, Search) ->
+  "models/search",
+  "collections/labellables"
+  ], (S2Laboratory, Labellable, Search, Labellables) ->
 
   class Label extends S2Laboratory
 
@@ -15,4 +16,7 @@ define [
 
     searchForLabellable: (action = "first") ->
       search = new Search()
-      search.labellableByLabel this, action
+      search.labellableByLabel(this, action)
+        .then((result) ->
+          new Labellables result.labellables
+        )

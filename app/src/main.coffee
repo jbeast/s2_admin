@@ -1,6 +1,8 @@
 #/*global require*/
 'use strict'
 
+window.S2 = {}
+
 require.config
   baseUrl: "../scripts"
   shim:
@@ -26,15 +28,19 @@ require.config
 
 require [
   'backbone',
+  'jquery',
   'lib/ajax',
-  'models/sample'
-], (Backbone, Ajax, Sample) ->
+  'controllers/app_controller',
+  'views/app_view',
+  'router'
+], (Backbone, $, Ajax, AppController, AppView, Router) ->
   Backbone.ajax = Ajax;
 
-  sample = new Sample gender: "alien", sampleType: "RNA"
+  appView = new AppView;
 
-  sample.on("invalid", (model, error) ->
-    console.log error
+  S2.App = new AppController appView
+
+  $( () -> 
+    S2.Router = new Router
+    Backbone.history.start()
   )
-
-  sample.isValid()
