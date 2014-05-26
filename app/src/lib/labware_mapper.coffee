@@ -1,13 +1,24 @@
 define [
   "models/tube",
+  "models/plate",
 
-  "views/tube"
-], (TubeModel, TubeView) ->
+  "views/tube",
+  "views/plate"
+], (
+  TubeModel,
+  PlateModel,
+  
+  TubeView,
+  PlateView
+) ->
 
   labware =
     tube: 
       model: TubeModel
       view: TubeView
+    plate:
+      model: PlateModel
+      view: PlateView
 
   (name) ->
 

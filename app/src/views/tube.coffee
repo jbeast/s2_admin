@@ -5,5 +5,11 @@ define [
 
   class TubeView extends LabwareView
 
-    constructor: () ->
-      @el = @createSVG(tubeSVG)
+    initialize: () ->
+      @svg =  @createSVG(tubeSVG)
+
+      this.model.on "change", @render
+
+    render: () ->
+      @$el.append @svg
+      this

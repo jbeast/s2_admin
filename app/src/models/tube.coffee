@@ -10,5 +10,3 @@ define [
 
     parse: (response, options) ->
       attrs        = response.tube
-      attrs.labels = new Label attrs.labels if attrs.labels?
-      attrs
