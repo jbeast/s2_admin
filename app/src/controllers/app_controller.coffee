@@ -3,6 +3,7 @@ define () ->
   class AppController
 
     constructor: (appView) ->
+      _.extend this, Backbone.Events
       @_view = appView
 
     show: (view) ->

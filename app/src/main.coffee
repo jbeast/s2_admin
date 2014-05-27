@@ -35,10 +35,11 @@ require [
   'router'
 ], (Backbone, $, Ajax, AppController, AppView, Router) ->
   Backbone.ajax = Ajax;
-
+  
   appView = new AppView;
 
-  S2.App = new AppController appView
+  S2.Dispatch = _.extend {}, Backbone.Events
+  S2.App      = new AppController appView
 
   $( () -> 
     S2.Router = new Router

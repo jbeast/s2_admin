@@ -20,11 +20,12 @@ define [
 
       label.searchForLabellable()
         .then((labellables) =>
+
           if labellables.length is 0
             console.log "No items found"
+
           else if labellables.length is 1
             labellable = labellables.shift()
-            # @_showLabware "labware/#{ labellable.get("name") }", { trigger: true }
             @_showLabware labellable.get("name")
         )
 
@@ -34,11 +35,12 @@ define [
     _showLabware: (uuid) ->
       lab = new S2Laboratory { uuid: uuid }
 
-      lab.fetch().then( (result) ->
-        name = _.first(_.keys(result))
-        labware = LabwareMapper name
-        model = new labware.model( result[name] )
-        view = new labware.view( model: model)
-        S2.App.show view
-      )
+      lab.fetch()
+        .then( (result) ->
+          name = _.first(_.keys(result))
+          labware = LabwareMapper name
+          model = new labware.model( result[name] )
+          view = new labware.view( model: model)
+          S2.App.show view
+        )
 
