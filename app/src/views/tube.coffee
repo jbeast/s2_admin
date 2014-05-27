@@ -1,15 +1,24 @@
 define [
   "views/labware",
+  "views/label",
+  "views/aliquot",
   "text!../../images/svgs/tube.svg"
-], (LabwareView, tubeSVG) ->
+], (LabwareView, LabelView, AliquotView, tubeSVG) ->
 
   class TubeView extends LabwareView
 
     initialize: () ->
-      @svg =  @createSVG(tubeSVG)
-
-      this.model.on "change", @render
+      @_svg =  @_createSVG(tubeSVG)
+      @model.on "change", @render
 
     render: () ->
-      @$el.append @svg
+      @$el.append @_svg
+
+      @_renderLabel() 
+
+      if @model.aliquots?
+        @model.aliquots.each (aliquot) =>
+          aliquotView = new AliquotView({ model: aliquot }).render().el
+          @$el.append aliquotView
+
       this
