@@ -1,9 +1,8 @@
 define [
   "views/labware",
-  "views/label",
   "views/aliquot",
   "text!../../images/svgs/tube.svg"
-], (LabwareView, LabelView, AliquotView, tubeSVG) ->
+], (LabwareView, AliquotView, tubeSVG) ->
 
   class TubeView extends LabwareView
 

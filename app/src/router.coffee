@@ -2,8 +2,9 @@ define [
   "backbone",
   "models/label",
   "models/s2_base/s2_laboratory",
+  "views/search",
   "lib/labware_mapper"
-], (Backbone, LabelModel, S2Laboratory, LabwareMapper) ->
+], (Backbone, LabelModel, S2Laboratory, SearchView, LabwareMapper) ->
 
   class Router extends Backbone.Router
 
@@ -13,7 +14,7 @@ define [
       "labware/:barcodeType/:barcode" : "labelSearch"
                                                 
     search: () ->                              
-      console.log "I am at the search page"  
+      S2.App.show(new SearchView)
                                                 
     labelSearch: (barcodeType, barcode) ->                  
       label = new LabelModel { type: barcodeType, value: barcode }

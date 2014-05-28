@@ -6,10 +6,13 @@ define [
   class PlateView extends LabwareView
     
     initialize: () ->
-      @svg =  @createSVG(PlateSVG)
+      @svg =  @_createSVG(PlateSVG)
 
-      this.model.on "change", @render
+      @model.on "change", @render
 
     render: () ->
       @$el.append @svg
+
+      @_renderLabel()
+
       this

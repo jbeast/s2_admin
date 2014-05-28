@@ -7,8 +7,8 @@ define [
   class Tube extends S2LabwareModel
 
     initialize: (attributes) ->
+      super arguments...
       @aliquots = new Aliquots @get("aliquots")
-      @labels   = new Label @get("labels") 
  
     urlRoot: () ->
       @baseUrl() + "/tubes"
