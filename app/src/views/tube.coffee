@@ -11,13 +11,12 @@ define [
       @model.on "change", @render
 
     render: () ->
-      @$el.append @_svg
-
-      @_renderLabel() 
 
       if @model.aliquots?
         @model.aliquots.each (aliquot) =>
           aliquotView = new AliquotView({ model: aliquot }).render().el
           @$el.append aliquotView
+
+      super()
 
       this

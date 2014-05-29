@@ -1,0 +1,20 @@
+<table class="table table-condensed">
+  <% if (labels) {
+    if (labels.barcode) { %>
+      <tr><td><strong>EAN13 Barcode</strong></td><td><%= labels.barcode.value %></td></tr>
+    <% } %>
+
+    <% if (labels['sanger label']) { %>
+      <tr><td><strong>Sanger Label</strong></td><td><%= labels['sanger label'].value %></td></tr>
+    <% }
+  }
+  
+  if (attributes) { %>
+    <tr><td><strong>UUID</strong></td><td><%= attributes.uuid %></td></tr>
+  <% if (attributes.location) { %>
+      <tr><td><strong>Location</strong></td><td><%= attributes.location %></td></tr>
+  <% }
+    
+  }%>
+
+</table>
