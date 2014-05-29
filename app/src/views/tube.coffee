@@ -17,6 +17,8 @@ define [
           aliquotView = new AliquotView({ model: aliquot }).render().el
           @$el.append aliquotView
 
-      super()
+      super
+        attributes: @model.attributes
+        labels:     @model.labels.attributes
 
       this
