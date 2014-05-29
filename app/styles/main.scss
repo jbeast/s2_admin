@@ -89,3 +89,11 @@ body {
         border-bottom: 0;
     }
 }
+
+/* Well or Tube colors by aliquot type */
+.dna   { fill: hsl(120, 45%, 58%);  background-color: hsl(120, 45%, 58%); }
+.dna_p { fill: hsl(120, 34%, 25%);  background-color: hsl(120, 34%, 25%); }
+.rna   { fill: hsl(3, 60%, 46%);    background-color: hsl(3, 60%, 46%); }
+.rna_p { fill: hsl(3, 60%, 25%);    background-color: hsl(3, 60%, 25%); }
+.na_p  { fill: hsl(194, 59%, 45%);  background-color: hsl(194, 59%, 45%); }
+.blood { fill: red;                 background-color: red; }
