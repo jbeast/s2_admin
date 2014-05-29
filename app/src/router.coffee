@@ -9,12 +9,8 @@ define [
   class Router extends Backbone.Router
 
     routes:                                    
-      "search"                        : "search"              
       "labware/:uuid"                 : "labware"
       "labware/:barcodeType/:barcode" : "labelSearch"
-                                                
-    search: () ->                              
-      S2.App.show(new SearchView)
                                                 
     labelSearch: (barcodeType, barcode) ->                  
       label = new LabelModel { type: barcodeType, value: barcode }
@@ -41,7 +37,6 @@ define [
           name = _.first(_.keys(result))
           labware = LabwareMapper name
           model = new labware.model( result[name] )
-          console.log model
           view = new labware.view( model: model)
           S2.App.show view
         )

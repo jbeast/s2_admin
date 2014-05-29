@@ -1,5 +1,5 @@
-define ["backbone"], (Backbone) ->
+define [ "backbone" ], (Backbone) ->
 
   class AppView extends Backbone.View
 
-    el: "#container"
+    el: "#app"

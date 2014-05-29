@@ -1,16 +1,17 @@
-define [ "backbone" ], (Backbone) ->
+define [ "backbone", "text!../../partials/search.html" ], (Backbone, SearchPartial) ->
 
   class SearchView extends Backbone.View
 
-    events:
-      "keyup input": "searchIfEnter"
+    initialize: () ->
+      @render()
 
-    template: _.template "<input type=\"search\" /><select>
-      <option value=\"ean13\" selected>EAN13</option>
-      <option value=\"sanger-barcode\">Sanger Barcode</option></select>"
+    events:
+      "submit form": "navigateToLabware"
+
+    template: _.template SearchPartial
 
     render: () ->
-      @$el.append @template
+      @$el.append @template()
       this
 
     inputValue: () ->
@@ -19,9 +20,8 @@ define [ "backbone" ], (Backbone) ->
     searchType: () ->
       @$('select option:selected').val()
 
-    searchIfEnter: (e) ->
-      if e.keyCode isnt 13
-        return
+    navigateToLabware: (e) ->
+      e.preventDefault()
 
       S2.Router.navigate "labware/#{ @searchType() }/#{ @inputValue() }", { trigger: true }
 
