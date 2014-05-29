@@ -20,7 +20,7 @@ define [
         memo
       , []
 
-      this.wells = new Wells wells...
+      this.wells = new Wells wells
 
     urlRoot: () ->
       @baseUrl() + "/plates"
