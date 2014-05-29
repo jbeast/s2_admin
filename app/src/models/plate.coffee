@@ -11,6 +11,9 @@ define [
       wells = _.reduce @get("wells"), (memo, value, location) ->
         [aliquot, details] = value
 
+        if not aliquot? or detail?
+          return memo
+
         well =
           location: location
           aliquot : aliquot
@@ -24,11 +27,3 @@ define [
 
     urlRoot: () ->
       @baseUrl() + "/plates"
-
-    nonEmptyWells: () ->
-      _.reduce(@get("wells"), (memo, value, wellName) ->
-        if value.length isnt 0
-          memo[wellName] = value
-        memo
-      , {})
-
