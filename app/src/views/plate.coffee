@@ -14,10 +14,16 @@ define [
       @$el.append @svg
 
       @model.wells.each (wellModel) =>
-        new WellView
+        wellView = new WellView
           model: wellModel,
           el   : @$ ".#{ wellModel.get("location") }"
+
+        @listenTo wellView, "hoverOn", @displayWellInfo
 
       @_renderLabel()
 
       this
+
+    displayWellInfo: (wellInfo) ->
+      console.log "Display that info"
+      console.log wellInfo
