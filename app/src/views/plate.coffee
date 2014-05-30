@@ -21,8 +21,6 @@ define [
           model: wellModel,
           el   : @$ ".#{ wellModel.get("location") }"
 
-        @listenTo wellView, "hoverOn", @displayWellInfo
-
       wellTable = new WellTableView { collection: @model.wells, el: @$("#information") }
       wellTable.render()
 

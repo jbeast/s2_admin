@@ -9,7 +9,11 @@ define [ "backbone" ], (Backbone) ->
       @$el.attr("class", "#{ newClass }  #{ oldClass }")
 
     events:
-      mouseover: "displayWell"
+      mouseover: "highlightWell"
+      mouseout:  "normalizeWell"
 
-    displayWell: (e) ->
-      @trigger "hoverOn", @model.attributes
+    highlightWell: (e) ->
+      @model.trigger "highlight"
+
+    normalizeWell: () ->
+      @model.trigger "normalize"

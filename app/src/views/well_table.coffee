@@ -18,6 +18,12 @@ define [
       @collection.each (well) =>
         tableRow = $(@tableRowTemplate well.toJSON())
 
+        well.on "highlight", () ->
+          tableRow.addClass("alert-info")
+
+        well.on "normalize", () ->
+          tableRow.removeClass("alert-info")
+
         sample = well.getSample()
 
         tableCellView = new SampleTableCellView model: sample, el: $("td.sample", tableRow).get(0)
