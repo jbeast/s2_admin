@@ -8,6 +8,9 @@ define [
     urlRoot: () ->
       @baseUrl() + "/samples"
 
+    parse: (response) ->
+      response.sample
+
     validate: (attributes, options) ->
       super()
       errors = @errors.sample

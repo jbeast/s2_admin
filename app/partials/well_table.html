@@ -4,16 +4,4 @@
       <th>Location</th><th>Aliquot Type</th><th>Sample Name</th><th>Quantity</th>
     </tr>
   </thead>
-  <% _.each(wells, function(well) { %>
-    <tr>
-      <td><strong><%= well.location %></strong></td>
-      <td><%= well.aliquot.type %></td>
-      <td><%= well.aliquot.sample.name %></td>
-      <% if (well.details) { %>
-        <td><%= well.details.quantity %></td>
-      <% } else { %>
-        <td>Unknown</td>
-      <% } %>
-    </tr>
-  <% }); %>
 </table>
