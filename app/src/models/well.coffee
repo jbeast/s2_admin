@@ -1,12 +1,10 @@
-define [ "backbone", "models/aliquot" ], (Backbone, Aliquot) ->
+define [ "backbone", "collections/aliquots" ], (Backbone, Aliquots) ->
 
   class Well extends Backbone.Model
 
     initialize: () ->
-      @aliquot = new Aliquot @get("aliquot") if @get("aliquot")?
+      @aliquots = new Aliquots @get("aliquots") if @get("aliquots")?
 
     getSample: () ->
-      if @aliquot?
-        @aliquot.getSample()
-      else
-        $.Deferred.reject("No sample information available for this well")
+      if @aliquots?
+        @aliquots.getSample()

@@ -26,10 +26,13 @@ define [
 
         sample = well.getSample()
 
-        tableCellView = new SampleTableCellView model: sample, el: $("td.sample", tableRow).get(0)
+        if sample?
+          tableCellView = new SampleTableCellView 
+            model: sample,
+            el: $("td.sample", tableRow).get(0)
+
+          sample.fetch()
         
         table.append tableRow
-
-        sample.fetch()
 
       @$el.append(table)

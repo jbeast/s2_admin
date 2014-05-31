@@ -13,9 +13,4 @@ define [
 
       super()
 
-      if @model.aliquots?
-        @model.aliquots.each (aliquot) =>
-          aliquotView = new AliquotView({ model: aliquot }).render().el
-          @$el.append aliquotView
-
       this

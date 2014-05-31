@@ -18,7 +18,7 @@ define [
       @model.wells.each (well) =>
         slotLike = new SlotLikeView
           model: well,
-          el   : @$ ".#{ well.get("location") }"
+          el   : @$ ".#{ well.get("slot") }"
 
       wellTable = new WellTableView 
         collection: @model.wells

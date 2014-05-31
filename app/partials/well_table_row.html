@@ -1,10 +1,14 @@
 <tr>
-  <td><strong><%= location %></strong></td>
-  <td><%= aliquot.type %></td>
-  <td class="sample">Loading...</td>
-  <% if (details) { %>
-    <td><%= details.quantity %></td>
-  <% } else { %>
-    <td>Unknown</td>
-  <% } %>
+  <td><strong><%= slot %></strong></td>
+  <% _.each(aliquots, function(aliquot) { %>
+    <td><%= aliquot.type %></td>
+    <% if (aliquot.sample) { %>
+      <td class="sample">Loading...</td>
+    <% } %>
+    <% if (aliquot.quantity) { %>
+      <td><%= aliquot.quantity %></td>
+    <% } else { %>
+      <td>Unknown</td>
+    <% } %>
+  <% }) %>
 </tr>

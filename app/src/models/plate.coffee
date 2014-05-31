@@ -8,16 +8,14 @@ define [
     initialize: (attributes) ->
       super arguments...
 
-      wells = _.reduce @get("wells"), (memo, value, location) ->
-        [aliquot, details] = value
+      wells = _.reduce @get("wells"), (memo, aliquots, slot) ->
 
-        if not aliquot?
+        if aliquots.length is 0
           return memo
 
         well =
-          location: location
-          aliquot : aliquot
-          details : details
+          slot: slot
+          aliquots: aliquots
 
         memo.push well
         memo

@@ -1,8 +1,9 @@
 define [
   "views/labware",
   "views/slot_like",
+  "views/well_table",
   "text!../../images/svgs/rack.svg"
-], (LabwareView, SlotLikeView, TubeRackSVG) ->
+], (LabwareView, SlotLikeView, WellTableView, TubeRackSVG) ->
 
   class TubeRackView extends LabwareView
 
@@ -16,5 +17,11 @@ define [
         slotLike = new SlotLikeView
           model: tube
           el   : @$ ".#{ tube.get("slot") }"
+
+      wellTable = new WellTableView
+        collection: @model.tubes
+        el: @$ "#information"
+
+      wellTable.render()
 
       this

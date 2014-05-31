@@ -3,11 +3,8 @@ define [ "backbone" ], (Backbone) ->
   class SlotLikeView extends Backbone.View
 
     initialize: () ->
-      if _.has @model, "aliquot"
-        aliquot = @model.aliquot
-      else if @model.has("aliquots")
-        aliquot = @model.aliquots.find (aliquot) ->
-          aliquot.has "sample"
+      aliquot = @model.aliquots.find (aliquot) ->
+        aliquot.has "sample"
 
       # Cause you can't use $.addClass() with svgs DAWG
       oldClass = @$el.attr "class"
