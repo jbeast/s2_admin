@@ -8,6 +8,11 @@ define [
 
   class Router extends Backbone.Router
 
+    initialize: () ->
+      @on("route", () -> 
+        S2.App.loading()
+      )
+
     routes:                                    
       "labware/:uuid"                 : "labware"
       "labware/:barcodeType/:barcode" : "labelSearch"
