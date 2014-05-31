@@ -1,4 +1,4 @@
-define () ->
+define [ "text!../../partials/loading.html" ], (LoadingPartial) ->
 
   class AppController
 
@@ -6,7 +6,13 @@ define () ->
       _.extend this, Backbone.Events
       @_view = appView
 
-    show: (view) ->
+    template: _.template(LoadingPartial)
+
+    loading: () ->
       @_currentSubView.remove() if @_currentSubView?
-      @_view.$el.append(view.render().el)
+      @_currentSubView = null
+      @_view.$el.html($ @template() )
+
+    show: (view) ->
+      @_view.$el.html(view.render().el)
       @_currentSubView = view

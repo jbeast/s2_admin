@@ -11,7 +11,7 @@ define [
       wells = _.reduce @get("wells"), (memo, value, location) ->
         [aliquot, details] = value
 
-        if not aliquot? # or not detail?
+        if not aliquot?
           return memo
 
         well =

@@ -6,6 +6,10 @@ define [
 
   class LabwareView extends Backbone.View
 
+    initialize: (svgText) ->
+      @_svg = @_createSVG(svgText)
+      @model.on "change", @render
+
     className: "row"
 
     template: _.template LabwarePartial
@@ -17,10 +21,14 @@ define [
     _createSVG: (xmlString) ->
       @parser.parseFromString(xmlString, "image/svg+xml").documentElement 
 
-    render: (info) ->
+    render: () ->
       @$el.append @template()
 
       @$("#svg").append @_svg
+
+      info =
+        attributes: @model.attributes
+        labels:     @model.labels.attributes
 
       @$("#information")
         .append(@tableTemplate info)

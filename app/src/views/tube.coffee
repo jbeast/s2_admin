@@ -7,18 +7,15 @@ define [
   class TubeView extends LabwareView
 
     initialize: () ->
-      @_svg =  @_createSVG(tubeSVG)
-      @model.on "change", @render
+      super(tubeSVG)
 
     render: () ->
+
+      super()
 
       if @model.aliquots?
         @model.aliquots.each (aliquot) =>
           aliquotView = new AliquotView({ model: aliquot }).render().el
           @$el.append aliquotView
-
-      super
-        attributes: @model.attributes
-        labels:     @model.labels.attributes
 
       this
