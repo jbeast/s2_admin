@@ -2,18 +2,22 @@ define [
   "models/tube",
   "models/plate",
   "models/tube_rack",
+  "models/filter_paper",
 
   "views/tube",
   "views/plate",
-  "views/tube_rack"
+  "views/tube_rack",
+  "views/filter_paper"
 ], (
   TubeModel,
   PlateModel,
   TubeRackModel,
+  FilterPaperModel,
   
   TubeView,
   PlateView,
-  TubeRackView
+  TubeRackView,
+  FilterPaperView
 ) ->
 
   labware =
@@ -26,6 +30,9 @@ define [
     tube_rack:
       model: TubeRackModel
       view: TubeRackView
+    filter_paper:
+      model: FilterPaperModel
+      view: FilterPaperView
 
   (name) ->
 

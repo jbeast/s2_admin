@@ -1,6 +1,5 @@
 define [
   "models/s2_base/s2_labware_model",
-  "models/label",
   "collections/aliquots"
 ], (S2LabwareModel, Label, Aliquots) ->
 
