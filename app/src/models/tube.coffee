@@ -1,7 +1,7 @@
 define [
   "models/s2_base/s2_labware_model",
   "collections/aliquots"
-], (S2LabwareModel, Label, Aliquots) ->
+], (S2LabwareModel, Aliquots) ->
 
   class Tube extends S2LabwareModel
 
