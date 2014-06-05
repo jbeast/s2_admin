@@ -1,14 +1,15 @@
-<tr>
+<% _.each(aliquots, function(aliquot) { %><tr>
   <td><strong><%= slot %></strong></td>
-  <% _.each(aliquots, function(aliquot) { %>
     <td><%= aliquot.type %></td>
+
     <% if (aliquot.sample) { %>
       <td class="sample">Loading...</td>
-    <% } %>
-    <% if (aliquot.quantity) { %>
+      <% } else { %>
+      <td></td>
+      <% }
+      if (aliquot.quantity) { %>
       <td><%= aliquot.quantity %></td>
     <% } else { %>
       <td>Unknown</td>
     <% } %>
-  <% }) %>
-</tr>
+</tr><% }) %>
