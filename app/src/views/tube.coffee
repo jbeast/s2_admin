@@ -28,7 +28,7 @@ define [
       $(".aliquot", @_svg).attr("class", "#{ newClass }  #{ oldClass }")
 
       tableRow = $(@aliquotTableRowTemplate(@model.toJSON()))
-      table = $(@aliquotTableTemplate( showLocation: false ))
+      table = $(@aliquotTableTemplate())
 
       sample = aliquot.getSample()
 
