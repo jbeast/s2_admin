@@ -9,7 +9,7 @@ define [ "backbone" ], (Backbone) ->
       # Cause you can't use $.addClass() with svgs DAWG
       oldClass = @$el.attr "class"
       newClass = aliquot.get("type").replace(/[^\w-]+/g, '_').toLowerCase()
-      @$el.attr("class", "#{ newClass }  #{ oldClass }")
+      @$el.attr("class", "#{ newClass } #{ oldClass } #{ "slotLike" if @model.get("uuid")? } ")
 
     events:
       mouseover: "highlightSlot"
