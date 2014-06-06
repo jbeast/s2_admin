@@ -14,9 +14,15 @@ define [ "backbone" ], (Backbone) ->
     events:
       mouseover: "highlightSlot"
       mouseout:  "normalizeSlot"
+      click:     "goToSample"
 
     highlightSlot: (e) ->
       @model.trigger "highlight"
 
     normalizeSlot: () ->
       @model.trigger "normalize"
+
+    goToSample: () ->
+      uuid = @model.get("uuid")
+      if (uuid?)
+        S2.Router.navigate "labware/" + uuid, { trigger: true } 
