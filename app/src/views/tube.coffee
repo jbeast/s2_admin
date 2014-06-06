@@ -13,4 +13,11 @@ define [
 
       super()
 
+      aliquot = @model.aliquots.find (aliquot) ->
+        aliquot.has "sample"
+
+      oldClass = $(".aliquot", @_svg).attr "class"
+      newClass = aliquot.get("type").replace(/[^\w-]+/g, '_').toLowerCase()
+      $(".aliquot", @_svg).attr("class", "#{ newClass }  #{ oldClass }")
+
       this

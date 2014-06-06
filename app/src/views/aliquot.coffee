@@ -7,6 +7,5 @@ define [ "backbone" ], (Backbone) ->
     template: _.template "<li><b>Sample Type: </b><%= type %></li>"
 
     render: () ->
-      console.log @template(@model.attributes)
       @$el.html(@template @model.attributes) 
       this
