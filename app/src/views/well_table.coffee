@@ -13,7 +13,7 @@ define [
 
     render: () ->
 
-      table = $(@tableTemplate())
+      table = $(@tableTemplate( showLocation: true))
 
       @collection.each (well) =>
         tableRow = $(@tableRowTemplate well.toJSON())

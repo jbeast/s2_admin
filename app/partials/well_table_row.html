@@ -1,5 +1,5 @@
 <% _.each(aliquots, function(aliquot) { %><tr>
-  <td><strong><%= slot %></strong></td>
+  <% if (typeof slot !== "undefined") { %><td><strong><%= slot %></strong></td><% } %>
     <td><%= aliquot.type %></td>
 
     <% if (aliquot.sample) { %>
