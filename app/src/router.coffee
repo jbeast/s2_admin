@@ -8,23 +8,24 @@ define [
 
   class Router extends Backbone.Router
 
-    initialize: () ->
-      @on("route", () ->
-        S2.App.loading()
-      )
-
     routes:
       "labware/:uuid"                 : "labware"
       "labware/:barcodeType/:barcode" : "labelSearch"
 
     labelSearch: (barcodeType, barcode) ->
+      S2.App.loading()
+
       label = new LabelModel { type: barcodeType, value: barcode }
+
+      if not label.isValid()
+        S2.App.error label.validationError
+        return undefined
 
       label.searchForLabellable()
         .then((labellables) =>
 
           if labellables.length is 0
-            console.log "No items found"
+            S2.App.warn "No items found for #{barcodeType} <strong>#{barcode}</strong>"
 
           else if labellables.length is 1
             labellable = labellables.shift()
@@ -32,6 +33,7 @@ define [
         )
 
     labware: (uuid) ->
+      S2.App.loading()
       @_showLabware uuid
 
     _showLabware: (uuid) ->
