@@ -8,10 +8,19 @@
 </head>
 <body>
     <div id="mocha"></div>
-    
+
     <script src="bower_components/mocha/mocha.js"></script>
-    <script>mocha.setup('bdd')</script>
+    <script>mocha.setup('tdd')</script>
     <script src="bower_components/chai/chai.js"></script>
+    <script src="bower_components/sinon-chai/lib/sinon-chai.js"></script>
+    <script src="bower_components/sinon/lib/sinon.js"></script>
+    <script src="bower_components/sinon/lib/sinon/times_in_words.js"></script>
+    <script src="bower_components/sinon/lib/sinon/util/core.js"></script>
+    <script src="bower_components/sinon/lib/sinon/extend.js"></script>
+    <script src="bower_components/sinon/lib/sinon/call.js"></script>
+    <script src="bower_components/sinon/lib/sinon/format.js"></script>
+    <script src="bower_components/sinon/lib/sinon/spy.js"></script>
+
     <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
     <script>
 
@@ -23,7 +32,8 @@
         }
 
         require([
-            'spec/test.js'
+            'spec/test.js',
+            'spec/label.js'
         ], runMocha);
     </script>
 

@@ -2,8 +2,10 @@
   "name": "s2library",
   "private": true,
   "dependencies": {
-    "chai": "~1.8.0",
-    "mocha": "~1.14.0"
+    "chai": "~1.9.2",
+    "mocha": "~1.14.0",
+    "sinon-chai": "~2.6.0",
+    "sinon": "~1.11.0"
   },
   "devDependencies": {}
 }
