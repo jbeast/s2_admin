@@ -9,15 +9,15 @@ define [
   class Router extends Backbone.Router
 
     initialize: () ->
-      @on("route", () -> 
+      @on("route", () ->
         S2.App.loading()
       )
 
-    routes:                                    
+    routes:
       "labware/:uuid"                 : "labware"
       "labware/:barcodeType/:barcode" : "labelSearch"
-                                                
-    labelSearch: (barcodeType, barcode) ->                  
+
+    labelSearch: (barcodeType, barcode) ->
       label = new LabelModel { type: barcodeType, value: barcode }
 
       label.searchForLabellable()
@@ -31,9 +31,9 @@ define [
             @_showLabware labellable.get("name")
         )
 
-    labware: (uuid) ->                         
+    labware: (uuid) ->
       @_showLabware uuid
-      
+
     _showLabware: (uuid) ->
       lab = new S2Laboratory { uuid: uuid }
 
@@ -46,4 +46,3 @@ define [
           view = new labware.view( model: model)
           S2.App.show view
         )
-

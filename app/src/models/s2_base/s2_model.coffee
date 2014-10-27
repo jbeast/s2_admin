@@ -1,9 +1,9 @@
 # Top parent model for all models in S2
 
 define [
-  "backbone", 
-  "config", 
-  "lib/errors", 
+  "backbone",
+  "config",
+  "lib/errors",
   "lib/error_list"
 ], (Backbone, Config, Errors, ErrorList) ->
 
@@ -15,9 +15,9 @@ define [
       super(arguments...)
 
     idAttribute: "uuid"
-    
-    baseUrl: () -> 
-      "http://psd2g.internal.sanger.ac.uk:8000"
+
+    baseUrl: () ->
+      "http://psd2-s2a.internal.sanger.ac.uk:8000"
 
     sync: (method, model, options) ->
       options["url"] = model.baseUrl() + "/" + model.id if method is "read"
@@ -25,4 +25,4 @@ define [
 
     validate: (attributes, options) ->
       @_errorList = new ErrorList
-      undefined 
+      undefined

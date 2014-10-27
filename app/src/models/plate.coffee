@@ -4,7 +4,7 @@ define [
 ], (S2LabwareModel, Wells) ->
 
   class Plate extends S2LabwareModel
-    
+
     initialize: (attributes) ->
       super arguments...
 
