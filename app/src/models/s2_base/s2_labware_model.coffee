@@ -14,3 +14,6 @@ define [
     order: () ->
       search = new Search
       search.orderByUUID(this)
+
+    labelTemplate: () ->
+      debugger

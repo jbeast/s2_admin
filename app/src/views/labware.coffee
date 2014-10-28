@@ -34,7 +34,6 @@ define [
       )
 
       printers.render()
-      debugger
 
       # The information table
       info =

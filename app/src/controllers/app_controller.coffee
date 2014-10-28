@@ -2,7 +2,8 @@ define [
   "text!../../partials/loading.html",
   "text!../../partials/error.html",
   "text!../../partials/warning.html",
-  ], (LoadingPartial, ErrorPartial, WarningPartial) ->
+  "text!../../partials/info.html",
+  ], (LoadingPartial, ErrorPartial, WarningPartial, InfoPartial) ->
 
   class AppController
 
@@ -16,17 +17,23 @@ define [
 
     warningTemplate: _.template(WarningPartial)
 
+    infoTemplate: _.template(InfoPartial)
+
     loading: () ->
       @_clear()
       @_view.$el.html($ @loadingTemplate() )
+
+    error: (errorText) ->
+      @_clear
+      @_view.$el.html($ @errorTemplate({ errorText: errorText }) )
 
     warn: (warningText) ->
       @_clear
       @_view.$el.html($ @warningTemplate({ warningText: warningText }) )
 
-    error: (errorText) ->
+    info: (infoText) ->
       @_clear
-      @_view.$el.html($ @errorTemplate({ errorText: errorText }) )
+      @_view.$el.html($ @infoTemplate({ infoText: infoText }) )
 
     show: (view) ->
       @_view.$el.html(view.render().el)
