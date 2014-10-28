@@ -1,16 +1,15 @@
 define [
   "backbone",
+  "views/printers",
   "text!../../partials/labware.html",
   "text!../../partials/labware_info_table.html"
-], (Backbone, LabwarePartial, LabwareInfoTablePartial) ->
+], (Backbone, PrintersView, LabwarePartial, LabwareInfoTablePartial) ->
 
   class LabwareView extends Backbone.View
 
     initialize: (svgText) ->
       @_svg = @_createSVG(svgText)
       @model.on "change", @render
-
-    className: "row"
 
     template: _.template LabwarePartial
 
@@ -19,13 +18,25 @@ define [
     parser: new DOMParser()
 
     _createSVG: (xmlString) ->
-      @parser.parseFromString(xmlString, "image/svg+xml").documentElement 
+      @parser.parseFromString(xmlString, "image/svg+xml").documentElement
 
     render: () ->
       @$el.append @template()
 
+      # The svg
       @$("#svg").append @_svg
 
+      # The printers
+      printers = new PrintersView(
+        collection: S2.Printers
+        labware:    @model
+        el:         @$("#printing")
+      )
+
+      printers.render()
+      debugger
+
+      # The information table
       info =
         attributes: @model.attributes
         labels:     @model.labels.attributes

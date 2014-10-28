@@ -8,7 +8,7 @@ define [
     initialize: (attributes) ->
       super arguments...
       @aliquots = new Aliquots @get("aliquots")
- 
+
     urlRoot: () ->
       @baseUrl() + "/tubes"
 
@@ -18,3 +18,5 @@ define [
     getSample: () ->
       if @aliquots?
         @aliquots.getSample()
+
+    printerType: "tube"

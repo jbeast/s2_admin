@@ -20,5 +20,7 @@ define [
         memo.push tube
         memo
       , []
-  
+
       this.tubes = new Tubes tubes
+
+    printerType: "tube_rack"

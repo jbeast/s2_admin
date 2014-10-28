@@ -25,3 +25,5 @@ define [
 
     urlRoot: () ->
       @baseUrl() + "/plates"
+
+    printerType: 'tube_rack'

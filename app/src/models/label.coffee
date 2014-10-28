@@ -14,15 +14,15 @@ define [
       # If it's a 2D barcode
       if _.isString(attributes.value) and attributes.value.substring(0,2) is 'FR'
         res = /^FR\d{8}$/.exec(attributes.value)
-        return 'Validation Error: EAN13 barcode is not valid' if not res?
+        return "Validation Error: EAN13 barcode <strong>#{attributes.value}</strong> is not valid" if not res?
 
       else if attributes.type is 'ean13'
         res =  /^\d{12,13}$/.exec(attributes.value)
-        return 'Validation Error: EAN13 barcode is not valid' if not res?
+        return "Validation Error: EAN13 barcode <strong>#{attributes.value}</strong> is not valid" if not res?
 
       else if attributes.type is 'sanger label'
         res = /^[A-Z]{2}\d{7}[A-Z]{1}$/i.exec(attributes.value)
-        return 'Validation Error: Sanger Label is not valid' if not res?
+        return "Validation Error: Sanger Label <strong>#{attributes.value}</strong> is not valid" if not res?
 
       undefined
 

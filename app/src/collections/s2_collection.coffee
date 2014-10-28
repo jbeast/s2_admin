@@ -5,7 +5,7 @@ define [
   "config"
 ], (Backbone, Config) ->
 
-  class S2Collection extends Backbone.Model
+  class S2Collection extends Backbone.Collection
 
     constructor: () ->
       @config = Config
