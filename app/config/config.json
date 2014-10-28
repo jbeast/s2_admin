@@ -1,15 +1,17 @@
 {
+  "baseUrl": "http://psd2f.internal.sanger.ac.uk:8000",
+
   "mockServices": false,
 
   "sample": {
     "mandatoryFields": ["sanger_sample_id_core"],
-    
+
     "validStates": ["draft", "published"],
-    
+
     "mandatoryIfStateIsPublished": [
       "taxon_id", "scientific_name", "common_name", "supplier_sample_name"
     ],
-    
+
     "validSampleTypes": [
       "DNA Human", "DNA Pathogen", "RNA", "Blood", "Saliva", "Tissue Non-Tumour", "Tissue Tumour", "Pathogen", "Cell Pellet"
     ],

@@ -17,7 +17,7 @@ define [
     idAttribute: "uuid"
 
     baseUrl: () ->
-      "http://psd2-s2a.internal.sanger.ac.uk:8000"
+      @config.baseUrl
 
     sync: (method, model, options) ->
       options["url"] = model.baseUrl() + "/" + model.id if method is "read"

@@ -22,7 +22,7 @@ define [
 
       else if attributes.type is 'sanger label'
         res = /^[A-Z]{2}\d{7}[A-Z]{1}$/i.exec(attributes.value)
-        return 'Validation Error: Sanger label is not valid' if not res?
+        return 'Validation Error: Sanger Label is not valid' if not res?
 
       undefined
 

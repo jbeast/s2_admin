@@ -8,10 +8,11 @@ require [
   'jquery',
   'lib/ajax',
   'controllers/app_controller',
+  'collections/printers'
   'views/app_view',
   'views/search',
   'router'
-], (Backbone, $, Ajax, AppController, AppView, SearchView, Router) ->
+], (Backbone, $, Ajax, AppController, Printers, AppView, SearchView, Router) ->
 
   Backbone.ajax = Ajax;
 
@@ -20,6 +21,9 @@ require [
 
   S2.Dispatch = _.extend({}, Backbone.Events)
   S2.App      = new AppController(appView)
+  S2.Printers = new Printers()
+
+  S2.Printers.fetch()
 
   $(() ->
     S2.Router = new Router();

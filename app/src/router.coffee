@@ -44,6 +44,6 @@ define [
           name = _.first(_.keys(result))
           labware = LabwareMapper name
           model = new labware.model( result[name] )
-          view = new labware.view( model: model)
+          view = new labware.view( model: model )
           S2.App.show view
         )

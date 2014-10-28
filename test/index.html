@@ -21,20 +21,13 @@
     <script src="bower_components/sinon/lib/sinon/format.js"></script>
     <script src="bower_components/sinon/lib/sinon/spy.js"></script>
 
-    <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
-    <script>
 
+    <script src="scripts/config/require.js"></script>
+    <script data-main="spec/main" src="bower_components/requirejs/require.js"></script>
+    <script>
         var assert = chai.assert;
         var expect = chai.expect;
         var should = chai.should();
-        var runMocha = function() {
-            mocha.run();
-        }
-
-        require([
-            'spec/test.js',
-            'spec/label.js'
-        ], runMocha);
     </script>
 
 </body>
