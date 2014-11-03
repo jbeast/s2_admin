@@ -18,5 +18,5 @@ window.require =
     underscore: '../bower_components/underscore/underscore'
     bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap'
     text: '../bower_components/requirejs-text/text'
-    config: 'config/config',
+    config: 'config/config'
     spec: '../spec'

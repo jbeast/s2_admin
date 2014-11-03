@@ -1,7 +1,6 @@
 define [
-  "models/s2_base/s2_management", 
-  "underscore"
-], (S2Management, _) ->
+  "models/s2_base/s2_management",
+], (S2Management) ->
 
   class Sample extends S2Management
 
@@ -14,7 +13,7 @@ define [
     validate: (attributes, options) ->
       super()
       errors = @errors.sample
-      
+
       unless _.contains @config.mandatoryFields, ((property) -> property in attributes)
         @_errorList.add errors.mandatoryFieldsError
 
@@ -23,11 +22,11 @@ define [
 
         unless _.contains @config.validStates, attributes.state
           @_errorList.add errors.validStatesError
-        
+
         if attributes.state is "published"
           unless _.every @config.mandatoryIfStateIsPublished, ((property) -> property in attributes)
             @_errorList.add errors.mandatoryIfStateIsPublishedError
-            
+
 
       # Validate sample_type
       if "sample_type" of attributes

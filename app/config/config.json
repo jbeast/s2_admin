@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://psd2g.internal.sanger.ac.uk:8000",
+  "baseUrl": "http://psd2-s2a.internal.sanger.ac.uk:8000",
 
   "mockServices": false,
 

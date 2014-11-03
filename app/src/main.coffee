@@ -14,7 +14,7 @@ require [
   'router'
 ], (Backbone, $, Ajax, AppController, Printers, AppView, SearchView, Router) ->
 
-  Backbone.ajax = Ajax;
+  Backbone.ajax = Ajax
 
   appView = new AppView;
   searchView = new SearchView({ el: $("#search") })
@@ -26,6 +26,6 @@ require [
   S2.Printers.fetch()
 
   $(() ->
-    S2.Router = new Router();
-    Backbone.history.start();
+    S2.Router = new Router()
+    Backbone.history.start()
   )

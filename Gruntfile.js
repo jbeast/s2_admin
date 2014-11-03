@@ -184,11 +184,29 @@ module.exports = function (grunt) {
                     // `name` and `out` is set by grunt-usemin
                     baseUrl: '.tmp/scripts',
                     optimize: 'none',
+                    shim: {
+                      underscore: {
+                        exports: '_'
+                      },
+                      backbone: {
+                        deps: [
+                          'underscore',
+                          'jquery'
+                        ],
+                        exports: 'Backbone'
+                      },
+                      bootstrap: {
+                        deps: ['jquery'],
+                        exports: 'jquery'
+                      }
+                    },
                     paths: {
                         'templates': '../../.tmp/scripts/templates',
                         'jquery': '../../app/bower_components/jquery/jquery',
                         'underscore': '../../app/bower_components/underscore/underscore',
-                        'backbone': '../../app/bower_components/backbone/backbone'
+                        'backbone': '../../app/bower_components/backbone/backbone',
+                        'text': '../../app/bower_components/requirejs-text/text',
+                        'config': '../../.tmp/scripts/config/config',
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
@@ -220,7 +238,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>/images',
-                    src: '{,*/}*.{png,jpg,jpeg}',
+                    src: '{,*/}*.{png,jpg,jpeg,svg}',
                     dest: '<%= yeoman.dist %>/images'
                 }]
             }
@@ -266,9 +284,22 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt}',
                         '.htaccess',
-                        'images/{,*/}*.{webp,gif}',
+                        'images/{,*/}*.{webp,gif,svg}',
                         'styles/fonts/{,*/}*.*',
                         'bower_components/sass-bootstrap/fonts/*.*'
+                    ]
+                }]
+            },
+            setup: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '.tmp',
+                    src: [
+                        'images/{,*/}*.*',
+                        'partials/*.html',
+                        'config/config.json'
                     ]
                 }]
             }
@@ -297,7 +328,7 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                         '/styles/fonts/{,*/}*.*',
                         'bower_components/sass-bootstrap/fonts/*.*'
                     ]
@@ -370,6 +401,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'coffee',
+        'copy:setup',
         'createDefaultTemplate',
         'jst',
         'compass:dist',
@@ -383,11 +415,5 @@ module.exports = function (grunt) {
         'copy',
         'rev',
         'usemin'
-    ]);
-
-    grunt.registerTask('default', [
-        'jshint',
-        'test',
-        'build'
     ]);
 };

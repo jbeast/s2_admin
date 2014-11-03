@@ -1,6 +1,6 @@
 define ["config"], (Config) ->
 
-  errors = 
+  errors =
     sample:
       mandatoryFieldsError: "Sample must contain the fields: #{Config.sample.mandatoryFields.join(", ")}"
       validStatesError: "STATE is not valid. STATE must be one of the following: #{Config.sample.validStates.join(", ")}"

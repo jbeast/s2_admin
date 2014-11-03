@@ -1,5 +1,5 @@
 define [
-  "backbone"  
+  "backbone",
 ], (Backbone) ->
 
   class LabelView extends Backbone.View
