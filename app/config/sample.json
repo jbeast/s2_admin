@@ -1,0 +1,34 @@
+{
+  "mandatoryFields": [
+      "sanger_sample_id_core"
+  ],
+  "mandatoryIfStateIsPublished": [
+      "taxon_id",
+      "scientific_name",
+      "common_name",
+      "supplier_sample_name"
+  ],
+  "validGenders": [
+      "Not applicable",
+      "Male",
+      "Female",
+      "Mixed",
+      "Hermaphrodite",
+      "Unknown"
+  ],
+  "validSampleTypes": [
+      "DNA Human",
+      "DNA Pathogen",
+      "RNA",
+      "Blood",
+      "Saliva",
+      "Tissue Non-Tumour",
+      "Tissue Tumour",
+      "Pathogen",
+      "Cell Pellet"
+  ],
+  "validStates": [
+      "draft",
+      "published"
+  ]
+}
