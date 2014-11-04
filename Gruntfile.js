@@ -299,7 +299,7 @@ module.exports = function (grunt) {
                     src: [
                         'images/{,*/}*.*',
                         'partials/*.html',
-                        'config/config.json'
+                        'config/*.*'
                     ]
                 }]
             }
